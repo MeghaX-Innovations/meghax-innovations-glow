@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// MeghaX Innovations colors
+				meghax: {
+					'dark-blue': '#0E76BC',
+					'light-blue': '#29ABE2',
+					'dark-green': '#006838',
+					'light-green': '#B4D235',
+					'dark': '#121212',
+					'light': '#F4F4F4',
 				}
 			},
 			borderRadius: {
@@ -84,11 +94,37 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'gradient-x': {
+					'0%, 100%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'gradient-x': 'gradient-x 15s ease infinite'
+			},
+			backgroundImage: {
+				'hero-pattern': 'radial-gradient(circle at 30% 30%, rgba(180, 210, 53, 0.15) 0%, rgba(41, 171, 226, 0.15) 40%, rgba(18, 18, 18, 0) 70%)',
+				'gradient-primary': 'linear-gradient(90deg, #0E76BC 0%, #29ABE2 100%)',
+				'gradient-secondary': 'linear-gradient(90deg, #006838 0%, #B4D235 100%)',
+				'gradient-diagonal': 'linear-gradient(45deg, #0E76BC 0%, #006838 50%, #B4D235 100%)',
 			}
 		}
 	},
