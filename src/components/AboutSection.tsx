@@ -1,7 +1,7 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const AboutSection: React.FC = () => {
@@ -14,10 +14,53 @@ const AboutSection: React.FC = () => {
     "Timely delivery"
   ];
 
+  // Counter animation states
+  const [projectCount, setProjectCount] = useState(0);
+  const [clientCount, setClientCount] = useState(0);
+  const [yearCount, setYearCount] = useState(0);
+  
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.2
   });
+
+  // Run counter animations when section is in view
+  useEffect(() => {
+    if (statsInView) {
+      // Projects counter animation
+      const projectInterval = setInterval(() => {
+        setProjectCount(prev => {
+          if (prev < 150) return prev + 3;
+          clearInterval(projectInterval);
+          return 150;
+        });
+      }, 20);
+      
+      // Clients counter animation
+      const clientInterval = setInterval(() => {
+        setClientCount(prev => {
+          if (prev < 50) return prev + 1;
+          clearInterval(clientInterval);
+          return 50;
+        });
+      }, 60);
+      
+      // Years counter animation
+      const yearInterval = setInterval(() => {
+        setYearCount(prev => {
+          if (prev < 15) return prev + 1;
+          clearInterval(yearInterval);
+          return 15;
+        });
+      }, 200);
+      
+      return () => {
+        clearInterval(projectInterval);
+        clearInterval(clientInterval);
+        clearInterval(yearInterval);
+      };
+    }
+  }, [statsInView]);
 
   const counterVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -28,15 +71,16 @@ const AboutSection: React.FC = () => {
     }
   };
 
+  // Tech stack icons with colors and logos
   const techs = [
-    { name: "React", color: "#61DAFB" },
-    { name: "Node.js", color: "#8CC84B" },
-    { name: "TypeScript", color: "#3178C6" },
-    { name: "Flutter", color: "#02569B" },
-    { name: "Python", color: "#FFD43B" },
-    { name: "AWS", color: "#FF9900" },
-    { name: "Docker", color: "#2496ED" },
-    { name: "GraphQL", color: "#E535AB" }
+    { name: "React", color: "#61DAFB", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+    { name: "Node.js", color: "#8CC84B", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" },
+    { name: "TypeScript", color: "#3178C6", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
+    { name: "Python", color: "#FFD43B", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
+    { name: "AWS", color: "#FF9900", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg" },
+    { name: "Docker", color: "#2496ED", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" },
+    { name: "MongoDB", color: "#4DB33D", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" },
+    { name: "JavaScript", color: "#F7DF1E", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" }
   ];
 
   const animationRef = useRef<HTMLDivElement>(null);
@@ -106,24 +150,33 @@ const AboutSection: React.FC = () => {
                 className="bg-gradient-to-br from-meghax-dark-blue/30 to-meghax-light-blue/20 backdrop-blur-sm border border-gray-800 rounded-lg p-4 flex-1 min-w-[150px] hover:shadow-lg hover:shadow-meghax-light-blue/20 transition-all duration-300"
                 variants={counterVariants}
               >
-                <div className="counter text-4xl font-bold text-gradient-blue">150+</div>
-                <div className="text-gray-400">Projects Completed</div>
+                <div className="counter text-4xl font-bold text-gradient-blue flex items-center justify-center">
+                  <span className="text-5xl tabular-nums">{projectCount}</span>
+                  <span className="ml-1">+</span>
+                </div>
+                <div className="text-gray-400 text-center">Projects Completed</div>
               </motion.div>
               
               <motion.div 
                 className="bg-gradient-to-br from-meghax-dark-green/30 to-meghax-light-green/20 backdrop-blur-sm border border-gray-800 rounded-lg p-4 flex-1 min-w-[150px] hover:shadow-lg hover:shadow-meghax-light-green/20 transition-all duration-300"
                 variants={counterVariants}
               >
-                <div className="counter text-4xl font-bold text-gradient-green">50+</div>
-                <div className="text-gray-400">Happy Clients</div>
+                <div className="counter text-4xl font-bold text-gradient-green flex items-center justify-center">
+                  <span className="text-5xl tabular-nums">{clientCount}</span>
+                  <span className="ml-1">+</span>
+                </div>
+                <div className="text-gray-400 text-center">Happy Clients</div>
               </motion.div>
               
               <motion.div 
                 className="bg-gradient-to-br from-meghax-dark-blue/30 to-meghax-light-green/20 backdrop-blur-sm border border-gray-800 rounded-lg p-4 flex-1 min-w-[150px] hover:shadow-lg hover:shadow-meghax-light-blue/20 transition-all duration-300"
                 variants={counterVariants}
               >
-                <div className="counter text-4xl font-bold text-gradient-mixed">15+</div>
-                <div className="text-gray-400">Years Experience</div>
+                <div className="counter text-4xl font-bold text-gradient-mixed flex items-center justify-center">
+                  <span className="text-5xl tabular-nums">{yearCount}</span>
+                  <span className="ml-1">+</span>
+                </div>
+                <div className="text-gray-400 text-center">Years Experience</div>
               </motion.div>
             </motion.div>
           </div>
@@ -136,24 +189,29 @@ const AboutSection: React.FC = () => {
                 {techs.map((tech, index) => (
                   <div 
                     key={index}
-                    className="tech-bubble absolute p-3 rounded-full border border-white/10 backdrop-blur-sm flex items-center justify-center text-sm font-medium"
+                    className="tech-bubble absolute p-3 rounded-full border border-white/10 backdrop-blur-sm flex items-center justify-center"
                     style={{ 
-                      backgroundColor: `${tech.color}30`,
-                      boxShadow: `0 0 20px ${tech.color}50`,
-                      width: `${Math.max(80, tech.name.length * 14)}px`,
-                      height: `${Math.max(80, tech.name.length * 6)}px`,
+                      backgroundColor: `${tech.color}20`,
+                      boxShadow: `0 0 20px ${tech.color}40`,
+                      width: '80px',
+                      height: '80px',
                     }}
                   >
-                    {tech.name}
+                    <img 
+                      src={tech.icon} 
+                      alt={tech.name} 
+                      className="w-12 h-12 object-contain"
+                      title={tech.name}
+                    />
                   </div>
                 ))}
                 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-meghax-dark-blue to-meghax-light-green animate-pulse-slow flex items-center justify-center">
+                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-meghax-dark-blue to-meghax-light-green animate-pulse-slow flex items-center justify-center">
                     <img 
                       src="/lovable-uploads/78d8d4a7-061e-457a-b513-44201dcbef25.png" 
                       alt="MeghaX Innovations Logo" 
-                      className="w-24 h-24"
+                      className="w-40 h-40 rounded-full p-2"
                     />
                   </div>
                 </div>
