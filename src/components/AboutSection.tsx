@@ -74,8 +74,6 @@ const AboutSection: React.FC = () => {
       const container = animationRef.current;
       if (!container) return;
       const rect = container.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
       const bubbles = container.querySelectorAll('.tech-bubble');
 
       bubbles.forEach((bubble: any) => {
@@ -199,7 +197,6 @@ const AboutSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Background decorations */}
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-meghax-light-blue/10 rounded-full filter blur-3xl -z-10"></div>
       <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-meghax-light-green/10 rounded-full filter blur-3xl -z-10"></div>
     </section>
