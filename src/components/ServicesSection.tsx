@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { 
   Globe, 
   Code, 
   Smartphone, 
-  Cube, 
+  Box, 
   Brain, 
   MessageSquare, 
   ShoppingCart, 
@@ -35,7 +34,7 @@ const ServicesSection: React.FC = () => {
       isHighlighted: false,
     },
     {
-      icon: Cube,
+      icon: Box,
       title: "3D Modeling & AR",
       description: "Immersive 3D models and augmented reality experiences for your products and services.",
       isHighlighted: true,
