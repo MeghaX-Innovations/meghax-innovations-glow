@@ -2,12 +2,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const techStackLogos = [
-  { src: "/logos/react.svg", alt: "React" },
-  { src: "/logos/nextjs.svg", alt: "Next.js" },
-  { src: "/logos/tailwind.svg", alt: "Tailwind CSS" },
-  { src: "/logos/typescript.svg", alt: "TypeScript" },
-  { src: "/logos/nodejs.svg", alt: "Node.js" },
-  { src: "/logos/vercel.svg", alt: "Vercel" },
+  { <Image src="/react.svg" alt="React" width={40} height={40} />,
+    <Image src="/tailwind.svg" alt="TailWind" width={40} height={40} />,
+    <Image src="/docker.svg" alt="Docker" width={40} height={40} />,
+    <Image src="/mongodb.svg" alt="mongoDB" width={40} height={40} />,
+    <Image src="/nodejs.svg" alt="NOdeJS" width={40} height={40} />,
+    <Image src="/nextjs.svg" alt="NextJS" width={40} height={40} />,
   // add or remove logos here
 ];
 
