@@ -47,7 +47,7 @@ export default function AboutSection() {
       {/* Central Megha logo (static) */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <Image
-          src="/logos/megha-logo.png" // update this path to your actual Megha logo
+          src="/megha-logo.jpg" // update this path to your actual Megha logo
           alt="MeghaX Logo"
           width={80}
           height={80}
