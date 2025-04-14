@@ -81,6 +81,10 @@ export default {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' }
         },
+        spin: {
+    '0%': { transform: 'rotate(0deg)' },
+    '100%': { transform: 'rotate(360deg)' },
+  }
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
@@ -107,7 +111,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
-        'spin-slow': 'spin-slow 20s linear infinite',
+        'spin-slow': 'spin 20s linear infinite',
         'gradient-x': 'gradient-x 15s ease infinite'
       },
       backgroundImage: {
