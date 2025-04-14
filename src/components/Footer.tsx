@@ -45,9 +45,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>123 Innovation Street, Tech City</li>
-              <li>Phone: +1 (123) 456-7890</li>
-              <li>Email: info@meghaxinnovations.com</li>
+              <li>Colombo 10, Sri Lanka</li>
+              <li>Phone: (+94) 76 643 3975</li>
+              <li>Email: meghaxinnovations@gmail.com</li>
             </ul>
           </div>
         </div>
