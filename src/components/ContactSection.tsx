@@ -35,7 +35,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-medium mb-1">Our Location</h4>
-                  <p className="text-gray-400">123 Innovation Street, Tech City, TC 12345</p>
+                  <p className="text-gray-400">Colombo 10, Sri Lanka</p>
                 </div>
               </div>
               
@@ -45,8 +45,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-medium mb-1">Email Us</h4>
-                  <p className="text-gray-400">info@meghaxinnovations.com</p>
-                  <p className="text-gray-400">support@meghaxinnovations.com</p>
+                  <p className="text-gray-400">meghaxinnovations@gmail.com</p>
                 </div>
               </div>
               
@@ -56,8 +55,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-medium mb-1">Call Us</h4>
-                  <p className="text-gray-400">+1 (123) 456-7890</p>
-                  <p className="text-gray-400">+1 (987) 654-3210</p>
+                  <p className="text-gray-400">(+94) 76 643 3975</p>
                 </div>
               </div>
             </div>
