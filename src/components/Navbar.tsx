@@ -37,7 +37,7 @@ const Navbar = () => {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-black/80 backdrop-blur-md py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-black/40 backdrop-blur-sm py-2' : 'bg-transparent py-4'
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -45,7 +45,8 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/78d8d4a7-061e-457a-b513-44201dcbef25.png" 
             alt="MeghaX Innovations Logo" 
-            className="h-10 w-auto" 
+            className="h-10 w-auto object-contain"
+            style={{ mixBlendMode: 'screen' }}
           />
           <span className="font-bold text-xl hidden sm:inline-block">MeghaX Innovations</span>
         </a>
@@ -78,7 +79,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg md:hidden">
+          <div className="absolute top-full left-0 right-0 bg-black/80 backdrop-blur-lg md:hidden">
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a

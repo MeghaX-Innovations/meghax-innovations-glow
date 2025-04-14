@@ -8,7 +8,6 @@ const HeroSection: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <Hero3D />
-      <div className="absolute top-0 left-0 w-full h-full bg-hero-pattern -z-10"></div>
       
       <div className="container mx-auto px-4 py-16 flex flex-col items-center text-center z-10">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
