@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Globe, 
@@ -81,8 +82,9 @@ const ServicesSection: React.FC = () => {
     <section id="services" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
             Our <span className="text-gradient-blue">Services</span>
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-primary rounded-full opacity-50"></div>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             We provide comprehensive software solutions to help businesses innovate and grow in the digital landscape.

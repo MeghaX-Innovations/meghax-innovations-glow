@@ -21,9 +21,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div 
       className={cn(
-        "relative p-6 rounded-xl transition-all duration-300 card-hover group",
+        "relative p-6 rounded-xl transition-all duration-300 h-full flex flex-col",
         "border border-gray-800 bg-black/40 backdrop-blur-sm",
-        "animate-fade-in"
+        "animate-fade-in hover:scale-105 hover:shadow-lg hover:shadow-meghax-light-blue/20"
       )}
       style={{ animationDelay: `${delay}ms` }}
     >
@@ -32,12 +32,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         "group-hover:opacity-10 bg-gradient-primary"
       )}></div>
       
-      <div className="mb-4">
+      <div className="mb-4 flex-grow">
         <div className={cn(
           "w-14 h-14 flex items-center justify-center rounded-lg mb-4 transition-all duration-300",
-          isHighlighted 
-            ? "bg-gray-800 group-hover:bg-gradient-primary text-meghax-light-blue group-hover:text-white" 
-            : "bg-gray-800 group-hover:bg-gradient-primary text-meghax-light-blue group-hover:text-white"
+          "bg-gray-800 group-hover:bg-gradient-primary text-meghax-light-blue group-hover:text-white"
         )}>
           <Icon size={28} />
         </div>
